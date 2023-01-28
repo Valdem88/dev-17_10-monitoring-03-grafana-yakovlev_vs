@@ -31,6 +31,11 @@ monitoring-03-grafana
 
 Решение домашнего задания - скриншот веб-интерфейса grafana со списком подключенных Datasource.
 
+#### Решение
+
+![](pic/Grafana.jpg)
+
+
 ## Задание 2
 Изучите самостоятельно ресурсы:
 - [PromQL query to find CPU and memory](https://stackoverflow.com/questions/62770744/promql-query-to-find-cpu-and-memory-used-for-the-last-week)
@@ -38,12 +43,41 @@ monitoring-03-grafana
 - [Understanding Prometheus CPU metrics](https://www.robustperception.io/understanding-machine-cpu-usage)
 
 Создайте Dashboard и в ней создайте следующие Panels:
+
+#### Решение
+
 - Утилизация CPU для nodeexporter (в процентах, 100-idle)
+
+```bash
+avg by(instance)(rate(node_cpu_seconds_total{job="nodeexporter",mode="idle"}[$__rate_interval])) * 100
+```
+
 - CPULA 1/5/15
+
+```bash
+avg by (instance)(rate(node_load1{}[$__rate_interval]))
+avg by (instance)(rate(node_load5{}[$__rate_interval]))
+avg by (instance)(rate(node_load15{}[$__rate_interval]))
+```
+
 - Количество свободной оперативной памяти
+
+```bash
+avg(node_memory_MemFree_bytes{instance="node-exporter:9100",job="nodeexporter"})
+avg(node_memory_MemAvailable_bytes{instance="node-exporter:9100", job="nodeexporter"})
+```
+
 - Количество места на файловой системе
 
+```bash
+node_filesystem_free_bytes{fstype="ext4",instance="node-exporter:9100",job="nodeexporter"}
+```
+
+
 Для решения данного ДЗ приведите promql запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+
+![](pic/Grafana-2p.jpg)
+
 
 ## Задание 3
 Создайте для каждой Dashboard подходящее правило alert (можно обратиться к первой лекции в блоке "Мониторинг").
