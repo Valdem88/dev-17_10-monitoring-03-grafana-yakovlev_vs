@@ -84,6 +84,14 @@ node_filesystem_free_bytes{fstype="ext4",instance="node-exporter:9100",job="node
 
 Для решения ДЗ - приведите скриншот вашей итоговой Dashboard.
 
+#### Решение
+
+![](pic/Grafana-3p.jpg)
+
+![](pic/Grafana-4p.jpg)
+
+![](pic/Grafana-5p.jpg)
+
 ## Задание 4
 Сохраните ваш Dashboard.
 
