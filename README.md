@@ -101,6 +101,12 @@ node_filesystem_free_bytes{fstype="ext4",instance="node-exporter:9100",job="node
 
 В решении задания - приведите листинг этого файла.
 
+#### Решение
+
+- [dashboard.json](https://github.com/Valdem88/dev-17_10-monitoring-03-grafana-yakovlev_vs/blob/main/files/dashboard.json)
+
+
+- [Файлы для сборки проекта](https://github.com/Valdem88/dev-17_10-monitoring-03-grafana-yakovlev_vs/tree/main/files/prometheus_stack)
 ---
 
 ### Как оформить ДЗ?
